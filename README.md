@@ -4,7 +4,8 @@
 *(gif 로딩에 다소 시간이 걸릴 수 있습니다.)*
 
 
-## ABOUT
+
+>## ABOUT
 
 <p align="center">
   <img src="doc/slam.gif">
@@ -13,7 +14,10 @@
   SLAM & Wall-Follower
 </p>
 
+
+
 ### Tech Base
+
 
 #### 1. 언어
 * Python - 구현
@@ -28,11 +32,10 @@
 #### 3. 프로젝트 관리 도구
 * git, github
   * repository 생성
-  * ~~버전관리, 협업 (미실시)~~
-    * 미실시 사유 - 다른 관리도구로 대체 가능하였음
-      * 하드웨어, 구동 환경 2원화
-      * 버전관리 및 협업 Slack, Notion 환경에서 실시
-* Notion (https://www.notion.so/HOME-b09bad420f4242c2bd7d9d953949108f)
+  * 프로젝트, 코드 관리
+  * ~~버전관리, 협업~~ (Slack, Notion으로 대체됨)
+    * 버전관리 및 협업 Slack, Notion 환경에서 실시
+* Notion (https://funny-tracker-34e.notion.site/HOME-b09bad420f4242c2bd7d9d953949108f)
   * Meeting Log
   * Issue 관리
   * Task 관리
@@ -42,31 +45,8 @@
   * data, code 공유
 
 
-## Reference별 분류
 
-* 공간 인지 및 주행 (https://github.com/ntrexlab/STELLA_REMOTE_PC_N2)
-  * Cartographer (https://github.com/cartographer-project/cartographer_ros)
-    * SLAM - 좌표계 시스템과 Map
-      * 2D Map
-        * Lidar Depth (https://github.com/EAIBOT/ydlidar)
-        * IMU (https://github.com/ntrexlab/ahrs_v2_ROS1)
-      * Coordination System
-        * Cartesian coordinate system
-        * Quaternions
-    * Navigation - 주행 알고리즘과 Calibration (https://github.com/cartographer-project/cartographer)
-      * Drive Algorithm
-      * Sensor Calibration
-
-* 객체 인지 (https://github.com/tensorflow/examples)
-  * Tensorflow
-    * Tensorflow-lite
-      * Object Detect (On Android and Raspberry-Pi)
-    * tflite Model-Maker (Colab)
-      * https://colab.research.google.com/github/khanhlvg/tflite_raspberry_pi/blob/main/object_detection/Train_custom_model_tutorial.ipynb
-    
-    
-    
-## 세부 기능별 분류
+>## 기능별 분류
 
 
 ### 1. 실내 측위를 위한 2D맵 생성
@@ -88,7 +68,7 @@
   * ROScore와 연동하여 조작 및 모니터링 구현
 
 
-### 4. 맵, 기준좌표, 객체 위치 좌표 저장 + ~~저장된 데이터 로딩하여 동작 구현 (미구현)~~
+### 4. 맵, 기준좌표, 객체 위치 좌표 저장 + ~~저장된 데이터 로딩하여 동작 구현~~ (미구현)
   #### 구현된 기능
   * 2D맵 저장 - Map Server, Map Saver
   * 2D맵 로딩 - Navigation Parameter
@@ -98,19 +78,8 @@
   <img src="doc/gui.gif">
 </p>
 <p align="center">
-  GUI & Map Saving
+  PyQt GUI & Map Saving
 </p>
-
-  #### 미구현 기능
-  * Auto Pose estimation
-    * Navigation Pose Calibration Issue
-      * *sensor-pose calibration 작동 이슈*
-  #### 미구현 기능 대체 기능
-  * 실시간 작동
-    * 작동 종료시 맵, 좌표, 객체 위치 데이터 휘발
-      * 초기화 및 2D맵 스캔 등 초기화 후 기능 동작
-      * SLAM Pose Calibration은 정상적으로 작동
-      * SLAM 환경의 Pose Calibration을 활용하려 시도했으나, 장애물 인지, 회피 주행, 맵 update 등과 충돌
 
 
 
@@ -147,11 +116,7 @@
 
 
 
-
-
-
-
-# 프로젝트 관리
+># 프로젝트 관리
 * Simulator (https://github.com/ROBOTIS-GIT/turtlebot3_simulations)
   * 코드 테스트 및 변수 관리
 * Notion
@@ -180,7 +145,7 @@
 </p>
 
 * Notion
-  * https://www.notion.so/924096c581d643c78881fb4c7dbbb3f5?v=d9bff0f0c53d44f2a83fa9b8618f0c5f
+  * https://funny-tracker-34e.notion.site/924096c581d643c78881fb4c7dbbb3f5?v=d9bff0f0c53d44f2a83fa9b8618f0c5f
   
 
 
@@ -194,7 +159,7 @@
 </p>
 
 * Notion
-  * https://www.notion.so/574ceb7ae62143b3847b295002abf0e2?v=8f01e42b95b64fbf84bf2470895841e6
+  * https://funny-tracker-34e.notion.site/574ceb7ae62143b3847b295002abf0e2?v=8f01e42b95b64fbf84bf2470895841e6
 
 
 
@@ -210,17 +175,21 @@
   
 
 
-# 미구현 및 개선사항
+># 미구현 및 개선사항
 
 ## 저장된 맵 정보를 불러온 뒤 정상적으로 작동하는 기능 구현 미완성
   * 미완성 사유
-    * Navigation Pose Estimation Issue
+    * Navigation Pose Estimation Issue (Pose calibration Issue)
       * 2D맵 저장, 불러오기 기능 구현은 완성
       * Navigation을 위한 2D맵 불러오기 이후, 이동체 위치 calibration이 정상적으로 작동하지 않아 위치 오차가 지속적으로 누적
   * Try&Error
     * SLAM 환경에서 정상적으로 Calibration이 작동하는 점에서 착안, SLAM 환경에서의 calibration method를 Navigation 환경에 적용 시도
       * lidar depth 기반 위치 추정하는 정확한 알고리즘 분석 미흡
       * SLAM method 강제 적용시 2D맵 정보가 override되는 현상 발생
+  * 기능 대체 구현
+    * 실시간 작동
+      * 작동 종료시 맵, 좌표, 객체 위치 데이터 휘발
+        * 초기화 및 2D맵 스캔 등 초기화 후 기능 동작
   * 향후 개선 방법
     * Navigation Pose Estimation Issue는 AMR 구현의 고질적인 이슈
     * SLAM에서 위치를 추정하기 위해 사용하는 알고리즘 대략적인 위치 추정, (Grid map 분할), 범위 내 depth 정보 비교
@@ -250,33 +219,19 @@
     * 유사 프로젝트 진행시, 모델 학습을 위한 데이터에 대한 검토를 프로젝트 초반부터 실시하여 데이터 확보 및 전처리에 충분한 시간 할당
 
 
-## git, github 활용 미비
-  * 미흡 사유
-    * 대면 커뮤니케이션
-      * 대부분의 프로젝트 진행이 대면 상태에서 모여서 진행되었습니다. 별도로 github를 통해 소통할 필요성이 없었습니다.
-    * 기능 구현을 위해 필요한 코드의 양이 적었음
-      * 기존의 패키지, 라이브러리를 분석하고 구조를 변경하거나 파라미터를 변경하는 작업이 주요 작업이었습니다.
-      * 기존 패키지의 내용은 유지한 상태에서 변경된 구조, 파라미터만을 공유하는 것으로도 충분했습니다.
-    * Odroid, Raspberry-Pi, Remote_PC(Core) 코드 분산
-      * 이동체 연산부, 객체 인식 연산부, Core원격PC로 코드가 분산되어 있어서 github를 통해 관리할 시 1~20분마다 매번 pull, push, merge를 해야 하는 번거로운 상황이 발생하였기 때문에 Slack을 중심으로 코드 공유 및 버전관리를 실시하였습니다.
-  * 향후 개선 방법
-    * 모듈, 패키지화
-      * 프로젝트 repository 내부에 각 파트별, 기능별로 코드를 모듈, 패키지화하여 독립적으로 관리
-    * 코드리뷰 기반 커뮤니케이션 실시
-      * github 내부의 comment 기능을 활용하여 Slack, github 이원화 관리에서 github 단일 소스 기반 관리
-    * 주석, 코드 리뷰 코드 중심 일원화 관리
-      * 추가, 수정되는 내용이 적은 상황에서도 주석, 리뷰 중심의 변동 사항을 남기는 방식으로 관리
+
+## git, github 기반 프로젝트 진행을 위한 개선점
+  * 모듈, 패키지화
+    * 프로젝트 repository 내부에 각 파트별, 기능별로 코드를 모듈, 패키지화하여 독립적으로 관리
+    * 반복적으로 pull, push, merge를 해야 하는 상황에서 작업 전 pull&merge 습관화
+  * 코드리뷰 기반 커뮤니케이션 실시
+    * github 내부의 comment 기능을 활용하여 Slack, github 이원화 관리에서 github 단일 소스 기반 관리
+  * 주석, 코드 리뷰 코드 중심 일원화 관리
+    * 추가, 수정되는 내용이 적은 상황에서도 주석, 리뷰 중심의 변동 사항을 남기는 방식으로 관리
+    
 
 
-
-
-
-
-
-
-
-
-## References
+>## References
 
 https://github.com/ntrexlab/STELLA_REMOTE_PC_N2
   * 실습용 이동체 Stella N2 제공 모듈
@@ -298,9 +253,10 @@ https://colab.research.google.com/github/khanhlvg/tflite_raspberry_pi/blob/main/
     
 https://github.com/dstjr2434/ros_git
   * 프로젝트 조원 repository
+
 ----------
 
-*참고 Reference*
+>*참고 Reference*
 
 https://github.com/cartographer-project/cartographer
   * 카토그래퍼 repository
@@ -349,3 +305,8 @@ https://github.com/ssscassio/ros-wall-follower-2-wheeled-robot
   * Wall-Follower opensource
     * Wall-Follower 알고리즘 개선을 위해 참조
 
+----------
+
+프로젝트에 대한 리뷰, 코멘트, 피드백에 늘 배고픕니다 :heart_eyes:
+
+Made with :fire:Maximum Effort:fire: and Python
