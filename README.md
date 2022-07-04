@@ -295,7 +295,9 @@ https://github.com/tensorflow/examples
 https://colab.research.google.com/github/khanhlvg/tflite_raspberry_pi/blob/main/object_detection/Train_custom_model_tutorial.ipynb
   * Model-Maker
     * 자체 데이터(img + xml)를 활용한 tflite 분류 모델 학습
-
+    
+https://github.com/dstjr2434/ros_git
+  * 프로젝트 조원 repository
 ----------
 
 *참고 Reference*
